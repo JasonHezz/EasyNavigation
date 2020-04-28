@@ -2,10 +2,12 @@ package com.next.easynavigationdemo.ui;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
 
 import com.next.easynavigation.view.EasyNavigationBar;
 import com.next.easynavigationdemo.R;
@@ -27,7 +29,7 @@ public class AddViewActivity extends AppCompatActivity {
     //选中时icon
     private int[] selectIcon = {R.mipmap.index1, R.mipmap.find1, R.mipmap.message1, R.mipmap.me1};
 
-    private List<android.support.v4.app.Fragment> fragments = new ArrayList<>();
+    private List<Fragment> fragments = new ArrayList<>();
     private Handler mHandler = new Handler();
     private boolean flag = true;
 

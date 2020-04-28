@@ -1,8 +1,9 @@
 package com.next.easynavigation.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
@@ -15,14 +16,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
 
     public ViewPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
-        super(fm);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.fragments = fragments;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = fragments.get(position);
-        return fragment;
+        return fragments.get(position);
     }
 
     @Override

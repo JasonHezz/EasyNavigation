@@ -1,11 +1,13 @@
 package com.next.easynavigationdemo.ui.weibo;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.next.easynavigationdemo.R;
 import com.next.easynavigationdemo.ui.WeiboActivity;
@@ -14,7 +16,7 @@ import com.next.easynavigationdemo.ui.WeiboActivity;
  * Created by Administrator on 2018/6/2.
  */
 
-public class WBFirstFragment extends android.support.v4.app.Fragment {
+public class WBFirstFragment extends Fragment {
 
     @Nullable
     @Override

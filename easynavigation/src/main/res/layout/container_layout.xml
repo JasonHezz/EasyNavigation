@@ -4,10 +4,12 @@
     android:layout_height="match_parent">
 
 
-    <com.next.easynavigation.view.CustomViewPager
-        android:id="@+id/mViewPager"
+    <LinearLayout
+        android:id="@+id/add_view_ll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.next.easynavigation.view.CustomViewPager>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"/>
 
 
     <RelativeLayout
@@ -22,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal" />
 
         <View
             android:id="@+id/common_horizontal_line"
@@ -35,17 +37,15 @@
             android:id="@+id/empty_line"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:clickable="false"
+            android:layout_alignParentBottom="true"
             android:background="@android:color/transparent"
-            android:layout_alignParentBottom="true" />
+            android:clickable="false" />
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/add_view_ll"
+    <com.next.easynavigation.view.CustomViewPager
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone"></LinearLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

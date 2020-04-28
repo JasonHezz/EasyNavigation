@@ -3,10 +3,6 @@ package com.next.easynavigation.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -18,6 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -113,7 +114,8 @@ public class EasyNavigationBar extends LinearLayout {
     private float lineHeight = 1;
     //分割线颜色
     private int lineColor = Color.parseColor("#f7f7f7");
-
+    //预加载个数
+    private int limit = 1;
     private int navigationBackground = Color.parseColor("#ffffff");
     private float navigationHeight = 60;
 
@@ -261,6 +263,7 @@ public class EasyNavigationBar extends LinearLayout {
 
             addAsFragment = attributes.getBoolean(R.styleable.EasyNavigationBar_Easy_addAsFragment, addAsFragment);
 
+            limit = attributes.getInt(R.styleable.EasyNavigationBar_Easy_offPageLimit, limit);
             attributes.recycle();
         }
     }
@@ -434,7 +437,7 @@ public class EasyNavigationBar extends LinearLayout {
     private void setViewPagerAdapter() {
         adapter = new ViewPagerAdapter(fragmentManager, fragmentList);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(10);
+        mViewPager.setOffscreenPageLimit(limit);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -1283,7 +1286,7 @@ public class EasyNavigationBar extends LinearLayout {
     public EasyNavigationBar anim(Anim anim) {
         if (anim != null) {
             this.anim = anim.getYoyo();
-        }else{
+        } else {
             this.anim = null;
         }
         return this;
